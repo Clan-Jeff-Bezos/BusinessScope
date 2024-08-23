@@ -7,22 +7,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name="collaborator")
+@Table(name="FollowUp")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Collaborator {
 
+public class FollowUpEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="collaboratorRol", nullable=false, length=150)
-    private String collaboratorRol;
-    @Column(name="idEntrepreneurship")
-    private int idEntrepreneurship;
     @Column(name="idUser")
     private int idUser;
-
-
+    @Column(name="followUpDate",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime followUpDate;
+    @Column(name="idventure")
+    private int idventure;
 }

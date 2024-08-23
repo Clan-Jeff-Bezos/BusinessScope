@@ -1,0 +1,29 @@
+[33mcommit 3b63db908e07e80af69385717bfcbce1679d9778[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/entities-user-management[m[33m)[m
+Author: Jonathan <josuarezp@unal.edu.co>
+Date:   Fri Aug 23 12:29:42 2024 -0500
+
+    creation of follow-up table
+
+[33mcommit d3a2825e9eb1db80336e8b52f388ac54b1b8fa4b[m
+Author: Jonathan <josuarezp@unal.edu.co>
+Date:   Fri Aug 23 12:10:54 2024 -0500
+
+    creation of message table
+
+[33mcommit b9307495fe5c27720b33579a333313d405aaf20c[m
+Author: Jonathan <josuarezp@unal.edu.co>
+Date:   Fri Aug 23 11:40:25 2024 -0500
+
+    create collaborator table
+
+[33mcommit 167c2d8b66536734d6ba4369c230e20f0d847a68[m
+Author: Jonathan <josuarezp@unal.edu.co>
+Date:   Fri Aug 23 06:58:15 2024 -0500
+
+    user table creation
+
+[33mcommit 2320c9324b653897998e6dd85be51dd35408280e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/feature/entities-venture-management[m[33m, [m[1;31morigin/feature/entities-user-management[m[33m, [m[1;31morigin/feature/entities-resource-management[m[33m, [m[1;31morigin/feature/entities[m[33m, [m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m, [m[1;32mfeature/entities-venture-management[m[33m)[m
+Author: PJuanTuiran <juanfer20091403@gmail.com>
+Date:   Fri Aug 23 00:21:32 2024 -0500
+
+    commit initial
