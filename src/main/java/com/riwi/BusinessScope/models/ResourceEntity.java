@@ -1,5 +1,6 @@
 package com.riwi.BusinessScope.models;
 
+import com.riwi.BusinessScope.utils.ResourceType;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
