@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity(name = "publication")
 public class PublicationEntity {
@@ -15,16 +16,15 @@ public class PublicationEntity {
     @Lob
     @Column(nullable = false)
     private String description;
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date datePublication;
+    @Column(nullable = false, updatable = false, columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime datePublication;
     private UserEntity idUser;
     private CategoryEntity idCategory;
 
     public PublicationEntity() {
     }
 
-    public PublicationEntity(int id, String title, String description, Date datePublication, UserEntity idUser, CategoryEntity idCategory) {
+    public PublicationEntity(int id, String title, String description, LocalDateTime datePublication, UserEntity idUser, CategoryEntity idCategory) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -49,28 +49,28 @@ public class PublicationEntity {
         this.title = title;
     }
 
-    public UserEntity getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(UserEntity idUser) {
-        this.idUser = idUser;
-    }
-
-    public Date getDatePublication() {
-        return datePublication;
-    }
-
-    public void setDatePublication(Date datePublication) {
-        this.datePublication = datePublication;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getDatePublication() {
+        return datePublication;
+    }
+
+    public void setDatePublication(LocalDateTime datePublication) {
+        this.datePublication = datePublication;
+    }
+
+    public UserEntity getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(UserEntity idUser) {
+        this.idUser = idUser;
     }
 
     public CategoryEntity getIdCategory() {

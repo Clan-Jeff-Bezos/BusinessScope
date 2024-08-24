@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
+
 @Entity(name = "event")
 public class EventEntity {
     @Id
@@ -14,18 +16,16 @@ public class EventEntity {
     @Lob
     private String description;
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateStart;
+    private LocalDateTime dateStart;
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateEnd;
+    private LocalDateTime dateEnd;
     private String location;
     private PublicationEntity idPublication;
 
     public EventEntity() {
     }
 
-    public EventEntity(int id, String title, String description, Date dateStart, Date dateEnd, String location, PublicationEntity idPublication) {
+    public EventEntity(int id, String title, String description, LocalDateTime dateStart, LocalDateTime dateEnd, String location, PublicationEntity idPublication) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -43,14 +43,6 @@ public class EventEntity {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -59,19 +51,27 @@ public class EventEntity {
         this.title = title;
     }
 
-    public Date getDateStart() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getDateStart() {
         return dateStart;
     }
 
-    public void setDateStart(Date dateStart) {
+    public void setDateStart(LocalDateTime dateStart) {
         this.dateStart = dateStart;
     }
 
-    public Date getDateEnd() {
+    public LocalDateTime getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Date dateEnd) {
+    public void setDateEnd(LocalDateTime dateEnd) {
         this.dateEnd = dateEnd;
     }
 

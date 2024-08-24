@@ -1,5 +1,6 @@
 package com.riwi.BusinessScope.models;
 
+import com.riwi.BusinessScope.utils.TypeSource;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
@@ -16,7 +17,7 @@ public class EntrepreneurshipEntity {
     private String description;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Enum TypeSource;
+    private TypeSource typeSource;
     @Column(nullable = false)
     private String urlsource;
     private CategoryEntity idCategory;
@@ -24,11 +25,11 @@ public class EntrepreneurshipEntity {
     public EntrepreneurshipEntity() {
     }
 
-    public EntrepreneurshipEntity(int id, String title, String description, Enum typeSource, String urlsource, CategoryEntity idCategory) {
+    public EntrepreneurshipEntity(int id, String title, String description, TypeSource typeSource, String urlsource, CategoryEntity idCategory) {
         this.id = id;
         this.title = title;
         this.description = description;
-        TypeSource = typeSource;
+        this.typeSource = typeSource;
         this.urlsource = urlsource;
         this.idCategory = idCategory;
     }
@@ -57,12 +58,12 @@ public class EntrepreneurshipEntity {
         this.description = description;
     }
 
-    public Enum getTypeSource() {
-        return TypeSource;
+    public TypeSource getTypeSource() {
+        return typeSource;
     }
 
-    public void setTypeSource(Enum typeSource) {
-        TypeSource = typeSource;
+    public void setTypeSource(TypeSource typeSource) {
+        this.typeSource = typeSource;
     }
 
     public String getUrlsource() {
@@ -87,7 +88,7 @@ public class EntrepreneurshipEntity {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", TypeSource=" + TypeSource +
+                ", typeSource=" + typeSource +
                 ", urlsource='" + urlsource + '\'' +
                 ", idCategory=" + idCategory +
                 '}';
