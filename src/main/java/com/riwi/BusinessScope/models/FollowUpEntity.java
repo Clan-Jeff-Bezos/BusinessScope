@@ -12,9 +12,14 @@ public class FollowUpEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
     private UserEntity idUser;
     @Column(name="followUpDate",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime followUpDate;
+
+    @ManyToOne
+    @JoinColumn(name = "idEntrepreneurship")
     private EntrepreneurshipEntity idEntrepreneurship;
 
     public FollowUpEntity() {

@@ -22,7 +22,8 @@ public class ResourceEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-
+    @ManyToOne
+    @JoinColumn(name = "idPublication")
     private PublicationEntity idPublication;
 
     public ResourceEntity(Integer id, String resourceUrl, ResourceType resourceType, String description, PublicationEntity idPublication) {

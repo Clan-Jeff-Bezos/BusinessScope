@@ -20,6 +20,9 @@ public class EventEntity {
     @Column(nullable = false)
     private LocalDateTime dateEnd;
     private String location;
+
+    @ManyToOne
+    @JoinColumn(name = "idPublication")
     private PublicationEntity idPublication;
 
     public EventEntity() {
@@ -67,12 +70,12 @@ public class EventEntity {
         this.dateStart = dateStart;
     }
 
-    public LocalDateTime getDateEnd() {
-        return dateEnd;
+    public PublicationEntity getIdPublication() {
+        return idPublication;
     }
 
-    public void setDateEnd(LocalDateTime dateEnd) {
-        this.dateEnd = dateEnd;
+    public void setIdPublication(PublicationEntity idPublication) {
+        this.idPublication = idPublication;
     }
 
     public String getLocation() {
@@ -83,12 +86,12 @@ public class EventEntity {
         this.location = location;
     }
 
-    public PublicationEntity getIdPublication() {
-        return idPublication;
+    public LocalDateTime getDateEnd() {
+        return dateEnd;
     }
 
-    public void setIdPublication(PublicationEntity idPublication) {
-        this.idPublication = idPublication;
+    public void setDateEnd(LocalDateTime dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
     @Override

@@ -21,10 +21,12 @@ public class RatingEntity {
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime ratingDate;
 
-
+    @ManyToOne
+    @JoinColumn(name = "idUser")
     private UserEntity idUser;
 
-
+    @ManyToOne
+    @JoinColumn(name = "idPublication")
     private PublicationEntity idPublication;
 
     public RatingEntity() {

@@ -12,20 +12,23 @@ public class CollaboratorEntity {
     private int id;
     @Column(name="collaboratorRole", nullable=false, length=150)
     private String collaboratorRole;
-    @Column(name="idEntrepreneurship")
+
+    @ManyToOne
+    @JoinColumn(name = "idEntrepreneurship")
     private EntrepreneurshipEntity idEntrepreneurship;
+    @ManyToOne
+    @JoinColumn(name = "idUser")
     private UserEntity idUser;
 
     public CollaboratorEntity() {
     }
 
-    public CollaboratorEntity(int id, String collaboratorRole, EntrepreneurshipEntity idEntrepreneurship, UserEntity idUser) {
+    public CollaboratorEntity(int id, String collaboratorRole, UserEntity idUser, EntrepreneurshipEntity idEntrepreneurship) {
         this.id = id;
         this.collaboratorRole = collaboratorRole;
-        this.idEntrepreneurship = idEntrepreneurship;
         this.idUser = idUser;
+        this.idEntrepreneurship = idEntrepreneurship;
     }
-
 
     public int getId() {
         return id;
@@ -59,4 +62,13 @@ public class CollaboratorEntity {
         this.idUser = idUser;
     }
 
+    @Override
+    public String toString() {
+        return "CollaboratorEntity{" +
+                "id=" + id +
+                ", collaboratorRole='" + collaboratorRole + '\'' +
+                ", idEntrepreneurship=" + idEntrepreneurship +
+                ", idUser=" + idUser +
+                '}';
+    }
 }

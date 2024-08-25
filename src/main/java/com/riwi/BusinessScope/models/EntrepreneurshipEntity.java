@@ -4,6 +4,8 @@ import com.riwi.BusinessScope.utils.TypeSource;
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 
+import java.util.Set;
+
 @Entity(name = "entrepreneurship")
 public class EntrepreneurshipEntity {
 
@@ -20,18 +22,32 @@ public class EntrepreneurshipEntity {
     private TypeSource typeSource;
     @Column(nullable = false)
     private String urlsource;
+    @ManyToOne
+    @JoinColumn(name = "idCategory")
     private CategoryEntity idCategory;
+
+    @OneToMany(mappedBy = "idEntrepreneurship")
+    private Set<CollaboratorEntity> collaborator;
+
+    @OneToMany(mappedBy = "idEntrepreneurship")
+    private Set<FollowUpEntity> follow;
+
+    @OneToMany(mappedBy = "idEntrepreneurship")
+    private Set<MessageEntity> message;
 
     public EntrepreneurshipEntity() {
     }
 
-    public EntrepreneurshipEntity(int id, String title, String description, TypeSource typeSource, String urlsource, CategoryEntity idCategory) {
+    public EntrepreneurshipEntity(int id, String title, String description, TypeSource typeSource, String urlsource, CategoryEntity idCategory, Set<CollaboratorEntity> collaborator, Set<FollowUpEntity> follow, Set<MessageEntity> message) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.typeSource = typeSource;
         this.urlsource = urlsource;
         this.idCategory = idCategory;
+        this.collaborator = collaborator;
+        this.follow = follow;
+        this.message = message;
     }
 
     public int getId() {
@@ -82,6 +98,30 @@ public class EntrepreneurshipEntity {
         this.idCategory = idCategory;
     }
 
+    public Set<CollaboratorEntity> getCollaborator() {
+        return collaborator;
+    }
+
+    public void setCollaborator(Set<CollaboratorEntity> collaborator) {
+        this.collaborator = collaborator;
+    }
+
+    public Set<FollowUpEntity> getFollow() {
+        return follow;
+    }
+
+    public void setFollow(Set<FollowUpEntity> follow) {
+        this.follow = follow;
+    }
+
+    public Set<MessageEntity> getMessage() {
+        return message;
+    }
+
+    public void setMessage(Set<MessageEntity> message) {
+        this.message = message;
+    }
+
     @Override
     public String toString() {
         return "EntrepreneurshipEntity{" +
@@ -91,6 +131,9 @@ public class EntrepreneurshipEntity {
                 ", typeSource=" + typeSource +
                 ", urlsource='" + urlsource + '\'' +
                 ", idCategory=" + idCategory +
+                ", collaborator=" + collaborator +
+                ", follow=" + follow +
+                ", message=" + message +
                 '}';
     }
 }

@@ -16,8 +16,14 @@ public class MessageEntity {
     private String content;
     @Column(name ="shipDate",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime shipDate;
+    @ManyToOne
+    @JoinColumn(name = "idUserSender")
     private UserEntity idUserSender;
+    @ManyToOne
+    @JoinColumn(name = "isUseraddressee")
     private UserEntity idUseraddressee;
+    @ManyToOne
+    @JoinColumn(name = "idEntrepreneurship")
     private EntrepreneurshipEntity idEntrepreneurship;
 
 
